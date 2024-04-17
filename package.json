@@ -1,0 +1,27 @@
+{
+  "name": "structure-updater",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-run": "npm run build && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoulRiaper/bot-structure-updater.git"
+  },
+  "author": "Kozlov Roman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SoulRiaper/bot-structure-updater/issues"
+  },
+  "homepage": "https://github.com/SoulRiaper/bot-structure-updater#readme",
+  "dependencies": {
+    "@types/marked": "^6.0.0",
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
+  }
+}
