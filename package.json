@@ -21,7 +21,9 @@
   "homepage": "https://github.com/SoulRiaper/bot-structure-updater#readme",
   "dependencies": {
     "@types/marked": "^6.0.0",
+    "@types/mongodb": "^4.0.7",
     "@types/node": "^20.12.7",
+    "mongodb": "^6.5.0",
     "typescript": "^5.4.5"
   }
 }
