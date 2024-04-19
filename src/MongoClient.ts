@@ -24,7 +24,7 @@ export class MongoDbClient {
         }
         else {
             const embeddedItems = itemToSave.hasItem;
-            let uris: Array<ObjectId> = []
+            let uris: Array<ObjectId> = [];
             for (const item of embeddedItems) {
                 if (isItem(item)) {
                     const uri = await this.saveEmbedded(item)
