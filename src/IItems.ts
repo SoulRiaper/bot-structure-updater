@@ -1,14 +1,19 @@
 import { ObjectId } from "mongodb";
 
-export interface LinkArray {
-    [key : string]: Array<Item>
-}
 
 export interface Item {
     type: StoredTypes,
     title: string,
     searchOrigin: SearchOrigins,
-    hasItem: Array<Item> | string | Array<ObjectId>
+    hasItem: Array<Item> | string,
+
+}
+
+export interface ItemToSave {
+    type: StoredTypes,
+    title: string,
+    searchOrigin: SearchOrigins,
+    hasItem: Array<ObjectId> | string,
 }
 
 export function isItem(item: any): item is Item {
@@ -21,5 +26,6 @@ export enum StoredTypes{
 }
 
 export enum SearchOrigins {
-    LANG = "lang"
+    LANG = "lang",
+    SUBJECT = "subject"
 }

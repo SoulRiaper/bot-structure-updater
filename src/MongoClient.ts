@@ -1,5 +1,5 @@
 import { Db, MongoClient, ObjectId } from "mongodb";
-import { Item, StoredTypes, isItem } from "./IItems";
+import { Item, ItemToSave, StoredTypes, isItem } from "./IItems";
 
 export class MongoDbClient {
     private url: string;
@@ -17,9 +17,9 @@ export class MongoDbClient {
     }
 
     public async saveEmbedded (itemToSave: Item): Promise<ObjectId> {
-
+        const saveThis :ItemToSave = { type: itemToSave.type, title: itemToSave.title, searchOrigin: itemToSave.searchOrigin, hasItem: new Array<ObjectId>}
         const collection = this.db.collection('user-things');
-        if (itemToSave.type == StoredTypes.ITEM) {
+        if (saveThis.type == StoredTypes.ITEM) {
             return (await collection.insertOne(itemToSave)).insertedId;
         }
         else {
@@ -31,8 +31,8 @@ export class MongoDbClient {
                     uris.push(uri);
                 }
             }
-            itemToSave.hasItem = uris;
-            return (await collection.insertOne(itemToSave)).insertedId;
+            saveThis.hasItem = uris;
+            return (await collection.insertOne(saveThis)).insertedId;
         }
     }
 
